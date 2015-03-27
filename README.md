@@ -1,6 +1,5 @@
 # smpv
-A rock stupid version control system - currently not for prime time - need to fix some
-really bad naming conventions revision v. version inherited from where it was last used - yeesh
+A rock stupid version control system - for artists
 
 First of all I will say what smpv is not
 - It is NOT a fully fledged version control environment
@@ -11,6 +10,8 @@ What it is
 a simple, serverless, file version system for artists to use to get around folder
 bloat and rediculous file names with words like "final", and "mostfinal", and 
 "mostestfinalist" and "no_really_this_one_is_final".
+
+Based loosely on the PDI/DWA percs rev ctl
 
 All it does do is 
 - make a a subfolder in the current location named .smpv
@@ -27,6 +28,9 @@ All it does do is
 - get the status of a file
 - has a separate notion of version and release 
 -- does nothing with that notion except tag it in the database - could be leveraged in another system?
+
+To Do:
+could really use a Qt front end so that commandline averse users could work with it
 
 usage:
 smpv --file filename [--add, etc]
