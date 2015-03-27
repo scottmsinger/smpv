@@ -21,12 +21,12 @@ All it does do is
 -- registering this in the database and changing file permissions
 - allows you to check the file back in
 -- registering with database
--- giving this a comment recorded with the revision in the database
-- revert to a previous revision
+-- giving this a comment recorded with the version in the database
+- revert to a previous version
 - get the history for a file
 - get the status of a file
-- has a separate notion of version and published revision (need to switch these - bad TIP naming)
--- does nothing with that notion except tag it in the database - for another system?
+- has a separate notion of version and release 
+-- does nothing with that notion except tag it in the database - could be leveraged in another system?
 
 usage:
 smpv --file filename [--add, etc]
@@ -43,7 +43,7 @@ Options:
   --recall_vers=I_RECALL_VERS
   --recall_file=S_RECALL_FILE_NAME
   --revup_vers=I_REVUP_VERS
-  --revup_rev=I_REVUP_REV
+  --revup_rel=I_REVUP_REL
   --history
   --status
   --file=S_FILE_NAME
