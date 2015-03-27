@@ -15,7 +15,7 @@ import datetime
 import ConfigParser
 from optparse import OptionParser
 
-import tip.studio.publish.pm
+#import tip.studio.publish.pm
 
 #
 # smpv_file
@@ -95,12 +95,9 @@ class smpv_file():
             osstat = os.stat(s_file_name)
             oct_perm = oct(osstat.st_mode)
             print oct_perm
-            #if(oct_perm[6] != int(4) and oct_perm[6] != int(6)):
-            #if(int(oct_perm[6]) % int(1) == 0):
-            #if(int(oct_perm) % 1 == 0):
-            # if it's executable by user or other at add time - make it executable by all
-            if(bool(osstat.st_mode & stat.S_IXOTH) or bool(osstat.st_mode & stat.S_IXUSR)):
-                os.chmod(s_file_name, 0555)
+            if(oct_perm[6] != int(4) and oct_perm[6] != int(6)):
+                #tip.studio.publish.pm.chmod(s_file_name, 0445)
+                os.chmod(s_file_name, 0445)
             else:
                 os.chmod(s_file_name, 0444)
             return(0)
@@ -135,8 +132,8 @@ class smpv_file():
             #os.chmod( s_file_name, 0666)
             osstat = os.stat(s_file_name)
             oct_perm = oct(osstat.st_mode)
-            if(int(oct_perm) % 1 == 0):
-                os.chmod(s_file_name, 0777)
+            if(oct_perm[6] != int(4) and oct_perm[6] != int(6)):
+                os.chmod(s_file_name, 0665)
             else:
                 os.chmod(s_file_name, 0666)
             
@@ -187,8 +184,8 @@ class smpv_file():
                 #need to preserve executable state
                 osstat = os.stat(s_file_name)
                 oct_perm = oct(osstat.st_mode)
-                if(int(oct_perm) % 1 == 0):
-                    os.chmod(s_file_name, 0555)
+                if(oct_perm[6] != int(4) and oct_perm[6] != int(6)):
+                    os.chmod(s_file_name, 0445)
                 else:
                     os.chmod(s_file_name, 0444)
             
@@ -214,8 +211,8 @@ class smpv_file():
                 shutil.copy (s_curr_file_path, s_file_name)
                 osstat = os.stat(s_file_name)
                 oct_perm = oct(osstat.st_mode)
-                if(int(oct_perm) % 1 == 0):
-                    os.chmod(s_file_name, 0555)
+                if(oct_perm[6] != int(4) and oct_perm[6] != int(6)):
+                    os.chmod(s_file_name, 0445)
                 else:
                     os.chmod(s_file_name, 0444)
                 self.cfgp_ini.set(s_file_sec, "status", "checked_in")
@@ -352,8 +349,8 @@ class smpv_file():
             #need to preserve executable state
             osstat = os.stat(s_file_name)
             oct_perm = oct(osstat.st_mode)
-            if(int(oct_perm) % 1 == 0):
-                os.chmod(s_file_name, 0777)
+            if(oct_perm[6] != int(4) and oct_perm[6] != int(6)):
+                os.chmod(s_file_name, 0665)
             else:
                 os.chmod(s_file_name, 0666)
             fp_smpv.close()            
